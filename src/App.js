@@ -1,9 +1,12 @@
+import Header from './components/header';
+import AppBoard from './components/appboard';
 
 function App() {
   return (
-    <div>
-      <h1>Todo List App</h1>
-    </div>
+    <>
+      <Header/>
+      <AppBoard />
+    </>
   );
 }
 

@@ -1,13 +1,262 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&display=swap"); 
+
+
+/* variables */
+:root {
+  --heading-font-family: "Quicksand", sans-serif;
+  --text-font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* common css */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
+
+body {
+  font-family: var(--text-font-family);
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.main_heading {
+  font-size: 22px;
+  font-family: var(--heading-font-family);
+}
+/* header css */
+.head {
+  width: 100%;
+  background-color: rgb(144 218 244 / 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0px;
+}
+
+.head .app_icon {
+  max-width: 40px;
+  margin-right: 20px;
+}
+
+.head .app_name p {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+/* main css */
+.main_parent {
+  width: 100vw;
+  height: 91vh;
+  background-color: rgb(229, 229, 229);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tdl_wrap {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(212, 212, 212, 0.5) 0px 5px 15px 0px, rgba(212, 212, 212, 0.3) 0px 5px 25px 0px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.track_record {
+  text-align: center;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, hsla(177, 87%, 79%, 1) 0%, hsla(235, 89%, 70%, 1) 100%);
+}
+.date_track span {
+  display: block;
+}
+.month {
+  font-size: 13px;
+}
+.task_track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.task_record {
+  padding: 15px 30px;
+}
+
+.task_record .add_task {
+  height: 50px;
+  width: 100%;
+  border: 3px solid rgb(205, 205, 205);
+  border-radius: 10px;
+  padding: 0px 50px 0 10px;
+  outline: none;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.task_record .input_box {
+  position: relative;
+}
+
+.task_record .input_box .add_btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: rgb(205, 205, 205);
+  width: 50px;
+  height: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: rgb(249, 249, 249);
+  padding-top: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.task_box {
+  border-radius: 10px;
+  background-color: rgb(205, 205, 205);
+  margin-top: 15px;
+  padding: 10px;
+  height: 306px;
+  overflow-y: auto;
+}
+
+.task_list li {
+  background-color: rgb(249, 249, 249);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: var(--heading-font-family);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo_content {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  display: block;
+  margin-right: 10px;
+  flex: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.tick::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  border-color: #5a5a5a;
+  border-style: solid;
+  transform: rotate(45deg);
+}
+
+.task_list li:last-child {
+  margin-bottom: 0px;
+}
+
+.edit_task_text {
+  border: none;
+  border-bottom: 1px solid #3b3b3b;
+  width: 100%;
+  flex: none;
+  background-color: transparent;
+}
+
+.edit_task_text:focus {
+  outline: none;
+}
+
+.update_content i {
+  font-size: 14px;
+  /* margin-left: 7px; */
+  cursor: pointer;
+  padding: 5px 0 5px 7px;
+}
+
+.todo_content p {
+  font-size: 14px;
+  word-break: break-word;
+}
+.completed {
+  text-decoration: line-through;
+  color: #5f5f5fa3;
+}
+.task_date {
+  font-size: 10px;
+  margin-left: 7px;
+}
+.update_content {
+  flex: none;
+}
+
+/* css for the scroll */
+#scrollable-div::-webkit-scrollbar {
+  width: 5px;
+}
+#scrollable-div::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+#scrollable-div::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px; 
+}
+
+/* Responsive css start here */
+@media screen and (max-width:1024px) {
+  .tdl_wrap {
+    width: 70%;
+  }  
+}
+@media screen and (max-width:768px) {
+  .tdl_wrap {
+    width: 90%;
+  }  
+}
+@media screen and (max-width:576px) {
+  .tdl_wrap {
+    width: 97%;
+    border-radius: 15px;
+  }
+  .task_record {
+    padding: 10px;
+  }  
+  .task_list li {
+    padding: 8px;
+  }
+  /* .update_content i {
+    font-size: 13px;
+    margin-left: 4px;
+  } */
+  .task_date {
+    display: none;
+  }
+  /* .todo_content p {
+    font-size: 13px;
+  } */
+  .edit_task_text {
+    flex: unset;
+  }
+}
+
