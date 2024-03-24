@@ -10,11 +10,24 @@ const TaskRecord = () => {
   }
 
   const taskCompleted =(completedTaskList) => {
-    console.log(completedTaskList);
-    const updatedTasks = tasks.map(item => item.id === completedTaskList.id ? completedTaskList : tasks);
+
+   const updatedTasks = tasks.map(item => item.id === completedTaskList.id ? completedTaskList : item);
+   setTasks(updatedTasks);
+   saveTodoList(updatedTasks);
+   }
+
+  const ediTask =(editedTaskList) => {
+   const updatedTasks = tasks.map(item => item.id === editedTaskList.id ? editedTaskList : item);
+   console.log(updatedTasks);
+  //  setTasks(updatedTasks);
+  //  saveTodoList(updatedTasks);
+   }
+
+  const deleteTask = (taskId) => {
+    const updatedTasks = tasks.filter( item => taskId !== item.id);
     setTasks(updatedTasks);
-    saveTodoList(updatedTasks);
-  }
+   saveTodoList(updatedTasks);
+  } 
 
   const handleAddTask = () => {
     if (inputValue.trim() !== '') {
@@ -58,7 +71,11 @@ const TaskRecord = () => {
           <i className="fas fa-plus"></i>
         </div>
       </div>
-      <TaskBox task={tasks} completeTaskFunction = {taskCompleted} />
+      <TaskBox task={tasks}
+               completeTaskFunction={taskCompleted}
+               deleteTaskFunction = {deleteTask}
+               editedTaskFunction = {ediTask} 
+      />
     </div>
   );
 };
