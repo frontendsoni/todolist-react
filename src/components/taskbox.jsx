@@ -15,9 +15,8 @@ const handleTaskCompletion = (taskId) => {
 const handleTaskEdit = (taskId) => {
   const editedTask = task.find(item => item.id === taskId);
   if (editedTask) {
-    //editedTaskFunction({ ...completedTask, completed: !completedTask.completed });
+    editedTaskFunction({ ...editedTask, text: editTaskText });
      console.log(editedTask);
-    // console.log({...completedTask, completed: !completedTask.completed});
   }
 }
   return (
@@ -40,12 +39,16 @@ const handleTaskEdit = (taskId) => {
                       <span className="task_date">{date}</span>
                       <i className="fa-solid fa-trash-can del_task_btn" onClick = {(e) => deleteTaskFunction(id)}></i>
                       {id === editTaskId && isEditing ? (
-                      <i className="fa-regular fa-square-check edit_task_btn" onClick = {() => {setIsEditing(false)}}></i>) : (
+                      <i className="fa-regular fa-square-check edit_task_btn" 
+                         onClick = {() => {
+                          setIsEditing(false);
+                          handleTaskEdit(id);
+                        }}></i>) : (
                       <i className="fa-solid fa-pencil edit_task_btn" 
                          onClick = {() => {
                           setIsEditing(true);
                           setEditTaskId(id);
-                          handleTaskEdit(id);
+                          setEditTaskText(text);
                         }}></i>
                       )}
                     </div>
