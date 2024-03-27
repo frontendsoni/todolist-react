@@ -40,10 +40,10 @@ const AppBoard = ()  => {
       const month = currentDate.getMonth() + 1;
       const year = currentDate.getFullYear();
       const formattedDate = `${day}/${month}/${year}`;
-      const newId = tasks[tasks.length - 1].id + 1; 
+      const newId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0;
 
       const newTask = {
-        id: newId,
+        id: newId + 1,
         text: inputValue,
         completed: false,
         date: formattedDate
